@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+    
+{% block title %}Photography
+{% endblock title %}
+{%block photo%}
+active
+{% endblock photo%}
+{% block body %}
+{% load static %}
+
+   {% load static %}
+   {% load thumbnail %}
+   {% for image in backimage %}
+    
+    {% if image.Page == 's'%}
+    <div class="site-blocks-cover overlay inner-page-cover" style="background-image: url('../media/{{ image.Image }}');" data-stellar-background-ratio="0.5">
+   
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-center no-gutters">
+          <div class="col-md-7 text-center" data-aos="fade-up">
+            <h1>Photography</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+     {% endif %}
+    {% endfor %}
+
+
+  
+
+    <div class="site-section"  data-aos="fade">
+    <div class="container">
+
+        <!--Slideshow starts here -->
+       
+        {% for photo, n in Photos %}
+        <hr class="hr-bold">
+        <a href="{% url 'category' photo.0.category %}">
+          <h4 class="my-2 font-weight-bold d-inline">{{photo.0.category}}</h4>
+          <i class="fa fa-arrow-circle-right d-inline float-right">   View More</i>
+        </a>
+        <hr>
+        <div class="row no-gutters">
+            {% for i in photo%}
+            <div class="col-sm-6 col-md-4 p-4 item" data-aos="fade-up" data-aos-delay="100">
+              <a class="image-gradient-2" href="{% url 'download' photo.0.category i.image_id %}">
+                <figure>
+  
+                <img src='{{i.image |thumbnail_url:"avatar"}}' class="img-fluid img-thumbnail" alt="...">
+                </figure>
+                </a>
+              </div>
+              
+            {% endfor %}
+        </div>    
+        {% endfor %}
+     
+
+      </div>
+    </div>
+  
+
+
+  {% endblock body %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+    
+{% block title %}
+{{image.image_id }}
+{% endblock title %}
+{%block photo%}
+active
+{% endblock photo%}
+{% block body %}
+{%load thumbnail%}
+{% load static %}
+
+   {% load static %}
+
+   <div class="header-blue">
+    <div class="container hero">
+        <div class="row">
+            <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+                <h1>The revolution is here.</h1>
+                <p>Mauris egestas tellus non ex condimentum, ac ullamcorper sapien dictum. Nam consequat neque quis sapien viverra convallis. In non tempus lorem. </p><button class="btn btn-light btn-lg action-button" type="button">Learn More</button></div>
+            <div
+                class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
+                <div class="phone-mockup"><img class="device" src="phone.svg" />
+                    <div class="screen"></div>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+  <div class="site-blocks-cover overlay inner-page-cover" style="background-image: url('{{image.image |thumbnail_url:"download"}}');" data-stellar-background-ratio="0.5">
+   
+    <div class="container-fluid">
+      <div class="row align-items-center justify-content-center no-gutters">
+        <div class="col-md-7 text-center" data-aos="fade-up">
+          <a href="#"><h1>Download Now</h1></a>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
+
+
+ <div class="col-12 mx-4 my-4">
+              <h2 class="site-section-heading text-center">{{image.category}}</h2>
+            </div>
+<div class="site-section"  data-aos="fade">
+    <div class="container">
+      
+      <div class="row no-gutters" >
+     
+        {% for i in Photo%}
+        <div class="col-sm-6 col-md-4 p-4 item" data-aos="fade-up" data-aos-delay="100">
+          <a class="image-gradient-2" href="{% url 'download' i.category i.image_id %}">
+            <figure>
+
+            <img src='{{i.image |thumbnail_url:"avatar"}}' class="img-fluid img-thumbnail" alt="...">
+            </figure>
+            </a>
+          </div>
+          
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+  {% endblock body %}

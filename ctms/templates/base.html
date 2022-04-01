@@ -1,0 +1,228 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  
+  {% load static %}
+  <link rel="title icon" href="{% static 'images/logo_title.png'%}">
+
+    <title>Capture the memories | 
+      {% block title %}
+    {% endblock title %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css'%}">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/pro.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css'%}">
+
+    <link rel="stylesheet" href="{% static 'css/lightgallery.min.css'%}">    
+    
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css'%}">
+
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css'%}">
+
+    <link rel="stylesheet" href="{% static 'fonts/ctm/stylesheet.css'%}">
+    <link rel="stylesheet" href="{% static 'css/swiper.css'%}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css'%}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    
+  </head>
+  <body>
+  
+  <div class="site-wrap">
+
+    
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+
+    <header class="site-navbar py-3" role="banner">
+      
+      
+
+
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <div class="col col-xl-4">
+            <h1 class="mb-0 ctm"><a href="{% url 'homepage'%}" class="text-black h4 d-inline font-weight-bold mb-0 ctm" style="font-family: 'milasian_personalregular'">              
+        Capture The Memories</a></h1>
+          </div>
+          <div class="col-10 col-md-7 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                <li class="{% block home %} {% endblock home %}"><a href="{% url 'homepage'%}">Home</a></li>
+
+                <li class="has-children {% block photo %} {% endblock photo %}">
+                  <a href="{% url 'photography'%}">Photography</a>
+                  <ul class="dropdown">
+
+                    {% for cat in Category %}
+
+                    <li><a href="{% url 'category' cat.Name %}">{{ cat.Name }}</a></li>
+
+                    {% endfor %}
+
+                  </ul>
+                </li>
+                <li class="{% block about %} {% endblock about %}"><a href="{% url 'aboutpage'%}">About</a></li>
+                <li class="{% block contact %} {% endblock contact %}"><a href="{% url 'contactpage'%}">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-6 col-xl-1 text-right">
+            <div class="d-none d-xl-inline-block">
+              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
+                <li>
+                  <a href="https://www.facebook.com/capturethemem0ries/" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                </li>
+                <li>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                </li>
+                <li>
+                
+                  <a href="https://instagram.com/capture_the_memories__" class="pl-3 pr-3"><span class="icon-instagram"></i></span></a>
+                </li>
+                <li>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-youtube-play"></span></a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-2" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+    </header>
+    <body>
+        {% block body %}
+        {% endblock body %}
+        
+   <div class="py-3 mb-5 pt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 d-md-flex align-items-center">
+          <h2 class="text-black mb-5 mb-md-0 text-center text-md-left">Need a photographer?</h2>
+          <div class="ml-auto text-center text-md-left">
+           <a href="{% url 'contactpage' %}" class="btn btn-danger py-3 px-5 rounded">Contact Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </body>
+    
+
+  <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="mb-5">
+              <h3 class="footer-heading mb-4">About Capture The Memories</h3>
+              <p>Capture The Memories is Organization which Collabrate All Photographers and makes there all precious Images for Everyone and Downloadable Gallery. <br>Thank You !</p>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="row mb-5">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Navigations</h3>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="{% url 'homepage'%}">Home</a></li>
+                  <li><a href="{% url 'photography'%}">Photography</a></li>
+                  {% for cat in Category %}
+
+                    <li><a href="{% url 'category' cat.Name %}">{{ cat.Name }}</a></li>
+
+                    {% endfor %}
+                </ul>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="{% url 'aboutpage'%}">About Me</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="{% url 'contactpage'%}">Contact Me</a></li>
+                  <li><a href="#">Terms</a></li>
+                </ul>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <h3 class="footer-heading mb-4">Follow Me</h3>
+
+                <div>
+                  <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                </div>
+
+            
+
+          </div>
+          
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+
+
+    
+    
+  </div>
+
+  <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js'%}"></script>
+  <script src="{% static 'js/jquery-ui.js'%}"></script>
+  <script src="{% static 'js/popper.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js'%}"></script>
+  <script src="{% static 'js/jquery.countdown.min.js'%}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap-datepicker.min.js'%}"></script>
+  <script src="{% static 'js/swiper.min.js'%}"></script>
+  <script src="{% static 'js/aos.js'%}"></script>
+
+  <script src="{% static 'js/picturefill.min.js'%}"></script>
+  <script src="{% static 'js/lightgallery-all.min.js'%}"></script>
+  <script src="{% static 'js/jquery.mousewheel.min.js' %}"></script>
+
+  <script src="{% static 'js/main.js'%}"></script>
+  
+ 
+    
+  </body>
+</html>
